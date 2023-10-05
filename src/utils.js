@@ -5,7 +5,7 @@ var BASE58CHARS = '23456789ABCDEFGHJKLMNPQRSTUVWXYZabcdefghjkmnpqrstuvwxyz';
 
 function generateCodes(nbrOfUsers, nbrOfCodesPerUser, lengthOfCodes) {
     var codes = [];
-    for (var i = 0; i < nbrOfCodesPerUser; i++) {
+    //for (var i = 0; i < 1; i++) { do only 1 time
         var oneSessionCodes = [];
         for (var j = 0; j < nbrOfUsers; j++) {
             var code;
@@ -14,6 +14,9 @@ function generateCodes(nbrOfUsers, nbrOfCodesPerUser, lengthOfCodes) {
             } while (oneSessionCodes.indexOf(code) !== -1);
             oneSessionCodes.push(code);
         }
+    //    codes.push(oneSessionCodes);
+    //}
+    for (var i = 0; i < 1; i++) {
         codes.push(oneSessionCodes);
     }
     return codes;
