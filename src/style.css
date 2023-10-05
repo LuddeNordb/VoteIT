@@ -106,11 +106,11 @@ html, body, #root {
 }
 
 .candidate.active {
-    background: #43a047;
+    background: #ab7dad;
 }
 
 .candidate.active:hover {
-    background: #388E3C;
+    background: #a371a5;
 }
 
 .candidate {
@@ -121,7 +121,7 @@ html, body, #root {
     font-size: 1.5em;
     margin: 0.5em;
     cursor: pointer;
-    background: #3498db;
+    background: #a6a6a6;
     box-shadow: 2px 2px 3px #888;
 
     transition: background 0.2s ease-out;
@@ -131,7 +131,7 @@ html, body, #root {
     -ms-user-select: none;
 }
 .candidate:hover {
-     background: #2980b9;
+     background: #9c9c9c;
 }
 
 .candidate.disabled {
@@ -151,7 +151,7 @@ html, body, #root {
 .button {
     padding: 0.2em;
     color: #fff;
-    background: #0097A7;
+    background: #99619C;
     text-align: center;
     box-shadow: 2px 2px 3px #888;
     cursor: pointer;
@@ -166,14 +166,14 @@ html, body, #root {
 }
 
 .button:hover {
-    background: #00838F;
+    background: #8d5990;
 }
 .button.red:hover {
     background: #C62828;
 }
 
 .button:active {
-    background: #006064;
+    background: #754a78;
     box-shadow: 0 0 3px #888;
 }
 
@@ -283,7 +283,7 @@ h1 {
 }
 
 .vote-summary .header {
-    background: #5cadc5;
+    background: #ab7dad;
     padding: 0 1em;
 }
 
@@ -299,7 +299,7 @@ h1 {
     margin: 0.5em;
     background: #fff;
     color: #000;
-    border: 4px solid #5cadc5;
+    border: 4px solid #ab7dad;
     border-top: 0;
 }
 
