@@ -148,7 +148,7 @@ var User = React.createClass({
                 <CandidateList candidates={candidates} numVotesLeft={numVotesLeft} lowestVacantIndex={lowestVacantIndex} candidateClicked={this.handleCandidateClicked} />
                 <CandidateList candidates={vacants} numVotesLeft={numVotesLeft} lowestVacantIndex={lowestVacantIndex} candidateClicked={this.handleVacantClicked} />
                 <div className="code-header">
-                    <h1>Code #{codeNumber}</h1>
+                    <h1>Enter personal code to vote</h1>
                     <CodeInput fields={numFields} maxLen={maxLength} ref={(c) => this.codeFields = c} />
                 </div>
                 {errors.length > 0 && (
