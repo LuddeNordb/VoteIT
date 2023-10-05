@@ -16,7 +16,7 @@ function generateCodes(nbrOfUsers, nbrOfCodesPerUser, lengthOfCodes) {
         }
     //    codes.push(oneSessionCodes);
     //}
-    for (var i = 0; i < 1; i++) {
+    for (var i = 0; i < nbrOfCodesPerUser; i++) {
         codes.push(oneSessionCodes);
     }
     return codes;
