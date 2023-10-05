@@ -139,7 +139,7 @@ html, body, #root {
 }
 
 .button.large {
-    margin: 1em;
+    margin: 0.5em;
     padding: 1em;
     font-size: 2em;
 }
