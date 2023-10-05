@@ -173,13 +173,8 @@ var User = React.createClass({
         let { winners } = this.state;
         return (
             <div className="winners">
-                <h1>Election results</h1>
-                <h5>In no particular order</h5>
-                <ul>
-                    {winners.map((winner, i) => (
-                        <li key={i}>{winner.name}</li>
-                    ))}
-                </ul>
+                <h1>Voting closed</h1>
+                <h5>Thanks for the votes!</h5>
             </div>
         )
     },
