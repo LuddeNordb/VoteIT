@@ -23,7 +23,7 @@ const PrintPage = React.createClass({
     },
 
     renderBlock(codes) {
-        return _.zip(...codes).map((voteSessionCodes, index) => (
+        return ((...codes)[0]).map((voteSessionCodes, index) => (
             voteSessionCodes.map((code) => (
                 (formatIndex(index + 1)) + ' ' + formatCode(code)
             )).join('\t')
