@@ -248,7 +248,7 @@ html, body, #root {
 }
 
 body {
-    font-family: Roboto, sans-serif;
+    font-family: 'EB Garamond', serif;
     background: #ecf0f1;
     color: #2c3e50;
 }
@@ -331,6 +331,10 @@ h1 {
 
 .raw-results-wrapper {
     margin-top: 1em;
+}
+
+.name {
+    font-family: Roboto, sans-serif;
 }
 
 .raw-results-explaination {
