@@ -158,6 +158,7 @@ var User = React.createClass({
                 )}
                 <VoteSummary candidates={candidates} vacants={vacants} numVotesLeft={numVotesLeft} />
                 <Button className="large" onClick={this.handleVoteSubmit}>Cast Vote</Button>
+                <p>© IT, Kassör och Kommunikatör - 23</p>
             </div>
         );
     },
