@@ -37,7 +37,7 @@ const PrintPage = React.createClass({
             <pre className="code-wrapper">
                 {
                     _.chunk(
-                        _.chunk(codes, 4).map(this.renderBlock),
+                        _.chunk(codes[0], 4).map(this.renderBlock),
                         3
                     ).map(
                         triple => triple.join('\n'.repeat(3))
