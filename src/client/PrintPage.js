@@ -31,14 +31,13 @@ const PrintPage = React.createClass({
     },
 
     render() {
-        const { codes2 } = this.state;
-        const codes = codes2[0]
+        const { codes } = this.state;
 
         return (
             <pre className="code-wrapper">
                 {
                     _.chunk(
-                        _.chunk(codes, 4).map(this.renderBlock),
+                        _.chunk(codes, 5).map(this.renderBlock),
                         3
                     ).map(
                         triple => triple.join('\n'.repeat(3))
