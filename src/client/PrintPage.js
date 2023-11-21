@@ -17,7 +17,7 @@ const PrintPage = React.createClass({
     componentWillMount() {
         getJSON('/admin/print').then(({ codes }) => {
             this.setState({
-                codes
+                codes[0]
             });
         });
     },
