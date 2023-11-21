@@ -4,7 +4,7 @@ var _ = require('lodash');
 var { getJSON } = require('./backend');
 
 const formatCode = code => _.chunk(code, 3).map(c => c.join('')).join('-');
-const formatIndex = index => index > 9 ? index : ' ' + index;
+const formatIndex = index => index > 9 ? index : '';
 
 const PrintPage = React.createClass({
 
@@ -17,7 +17,7 @@ const PrintPage = React.createClass({
     componentWillMount() {
         getJSON('/admin/print').then(({ codes }) => {
             this.setState({
-                codes[0]
+                codes
             });
         });
     },
