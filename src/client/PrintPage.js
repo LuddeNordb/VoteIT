@@ -4,7 +4,7 @@ var _ = require('lodash');
 var { getJSON } = require('./backend');
 
 const formatCode = code => _.chunk(code, 3).map(c => c.join('')).join('-');
-const formatIndex = index => index > 9 ? index : '';
+const formatIndex = index => index > 9 ? '' : '';
 
 const PrintPage = React.createClass({
 
@@ -31,7 +31,8 @@ const PrintPage = React.createClass({
     },
 
     render() {
-        const { codes } = this.state;
+        const { codes2 } = this.state;
+        const codes = codes2[0]
 
         return (
             <pre className="code-wrapper">
