@@ -2,6 +2,7 @@ var utils = require("./utils");
 
 function CodeManager() {
     this.codes = [];
+    this.bannedCodes = [];
     this.currentSession = -1;
     this.codesGenerated = false;
 }
@@ -19,6 +20,10 @@ CodeManager.prototype.nextSession = function() {
     }
 };
 
+CodeManager.prototype.banCode = function(code) {
+    this.bannedCodes.push(code);
+};
+
 CodeManager.prototype.generateCodes = function(nbrOfUsers, nbrOfCodesPerUser, lengthOfCodes) {
     this.codesGenerated = true;
     return this.codes = utils.generateCodes(nbrOfUsers, nbrOfCodesPerUser, lengthOfCodes);
@@ -29,6 +34,9 @@ CodeManager.prototype.currentSessionCodes = function() {
 };
 
 CodeManager.prototype.isValidCode = function(code) {
+    if (this.bannedCodes.indexOf(code) !== -1) { //Säger nej när vi försöker använda en bannad kod
+        return false;
+    }
     return this.currentSessionCodes().indexOf(code) !== -1;
 };
 

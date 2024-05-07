@@ -6,3 +6,4 @@ Server/npm-debug.log
 coverage
 public/bundle*
 public/style*
+package-lock.json

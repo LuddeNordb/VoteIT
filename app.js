@@ -8,8 +8,8 @@ var CodeManager = require('./src/codeManager');
 var VoteCounter = require('./src/voteCounter');
 var app = express();
 
-app.set('port', (process.env.PORT || 5000));
-app.set('password', (process.env.PASSWORD));
+app.set('port', (process.env.PORT || 10000));
+app.set('password', (process.env.PASSWORD || "sektmote2023"));
 app.set('users', parseInt(process.env.NUM_USERS, 10) || 20);
 app.set('codesPerUser', parseInt(process.env.CODES_PER_USER, 10) || 20);
 
@@ -41,7 +41,8 @@ var conf = {
 // Tell user to use HTTPS
 app.use(function(req, res, next) {
     if(req.headers['x-forwarded-proto']!='https') {
-        return res.end('Please visit the site with HTTPS');
+        next(); //För testning endast
+        //return res.end('Please visit the site with HTTPS');
     } else {
         next();
     }
@@ -166,6 +167,21 @@ app.get('/admin/print', function(req, res) {
         res.json({
             codes: codes.transpose()
         }).end();
+    }
+});
+
+app.post('/admin/invcode', function(req, res) {
+    if (isAuthenticated(req, res)) {
+        var code = req.body.code;
+
+        try {
+            codeManager.banCode(code);
+        } catch (e) {
+            res.status(400).send('FAIL: ' + e);
+            numberOfInvalidVotes++;
+        }
+
+        res.end();
     }
 });
 

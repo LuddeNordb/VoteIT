@@ -2,7 +2,7 @@ var React = require('react');
 
 var Popout = require('react-popout');
 var browserHistory = require('react-router').browserHistory
-
+var CodeInput = require('./CodeInput');
 var Button = require('./Button');
 var PrintPage = require('./PrintPage');
 
@@ -22,7 +22,8 @@ var Admin = React.createClass({
             signedIn: Boolean(window.sessionStorage.getItem(TOKEN_KEY)),
             voteState: POSSIBLE_STATES.noVote,
             votesReceived: 0,
-            error: false
+            error: false,
+            bannedMessage: "", 
         };
     },
     componentWillMount() {
@@ -43,6 +44,16 @@ var Admin = React.createClass({
             signedIn: false,
             error: false
         });
+    },
+    handleBanVote() {
+        let code = this.codeFields.getCode();
+
+        postJSON('/admin/invcode', { 
+            code : code }).then(res => {
+                this.setState({
+                    bannedMessage : "Code:" + code + " has been invalidated"
+                });
+            });
     },
     handleOnSubmit() {
         let input = this.passwordField.value;
@@ -82,7 +93,7 @@ var Admin = React.createClass({
         }
     },
     render() {
-        let { signedIn, error, votesReceived, voteState } = this.state;
+        let { signedIn, error, votesReceived, voteState, bannedMessage } = this.state;
         let voteInProgress = voteState === POSSIBLE_STATES.vote;
 
         if (signedIn) {
@@ -100,6 +111,9 @@ var Admin = React.createClass({
                             Create new voting session
                         </Button>}
                     <Button className="small" onClick={() => browserHistory.push('/admin/rawResult')}>Show raw result</Button>
+                    <CodeInput fields={3} maxLen={3} ref={(c) => this.codeFields = c} />
+                    <Button className="large red" onClick={this.handleBanVote}>Invalidate code</Button>
+                    <div className='center'>{bannedMessage}</div>
                     <Button className="small" onClick={this.clearToken}>Sign out</Button>
                 </div>
             );
